@@ -1,0 +1,18 @@
+with open('data.txt') as file:
+        data= []
+        for line in file:
+            data.append(line[:-1])
+    distance = []
+    vertical_input=[]
+    horizontal_input=[]
+    for line in data:
+        if line[-6:] == '[edit]':
+            state = line[:-6]
+        elif '(' in line:
+            town = line[:line.index('(')-1]
+            state_town.append([state,town])
+        else:
+            town = line
+            state_town.append([state,town])
+    state_college_df = pd.DataFrame(game_data,columns = ['distance','vertical_input','horizontal_input'])
+    return state_college_df
